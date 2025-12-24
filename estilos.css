@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #2d1b1b 100%);
+    color: #c9c9c9;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.tela {
+    min-height: 100vh;
+    padding: 2rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.tela.ativa {
+    display: flex;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.titulo-principal {
+    font-size: 3.5rem;
+    color: #8b0000;
+    text-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    letter-spacing: 3px;
+    font-weight: normal;
+}
+
+.subtitulo {
+    font-size: 1.5rem;
+    color: #b8860b;
+    margin-bottom: 3rem;
+    font-style: italic;
+}
+
+.botao-navegacao {
+    background: linear-gradient(45deg, #2d1b1b, #4a1f1f);
+    color: #c9c9c9;
+    border: 2px solid #8b0000;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.botao-navegacao:hover:not(:disabled) {
+    background: linear-gradient(45deg, #4a1f1f, #5d2a2a);
+    color: #ffffff;
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+.botao-navegacao:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.container-botoes {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.conteudo {
+    background: rgba(26, 26, 26, 0.8);
+    border: 1px solid #444;
+    padding: 2rem;
+    border-radius: 5px;
+    margin: 2rem 0;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.lista-gotica {
+    list-style: none;
+    text-align: left;
+}
+
+.lista-gotica li {
+    padding: 10px;
+    margin: 5px 0;
+    border-left: 3px solid #8b0000;
+    background: rgba(43, 43, 43, 0.5);
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.item-galeria {
+    background: rgba(43, 43, 43, 0.8);
+    border: 1px solid #555;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.icone {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #b8860b;
+}
+
+.contador {
+    font-size: 4rem;
+    color: #8b0000;
+    text-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+    margin: 1rem 0;
+}
+
+.formulario-gotico {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.campo-formulario {
+    background: rgba(43, 43, 43, 0.8);
+    border: 1px solid #555;
+    color: #c9c9c9;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 3px;
+}
+
+.campo-formulario:focus {
+    outline: none;
+    border-color: #8b0000;
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.3);
+}
+
+.mensagem-flutuante {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(139, 0, 0, 0.9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    animation: slideIn 0.5s ease-out;
+    z-index: 1000;
+    border-left: 4px solid #ff0000;
+}
+
+.mensagem-flutuante.success {
+    background: rgba(0, 100, 0, 0.9);
+    border-left: 4px solid #00ff00;
+}
+
+.mensagem-flutuante.error {
+    background: rgba(139, 0, 0, 0.9);
+    border-left: 4px solid #ff0000;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .titulo-principal {
+        font-size: 2.5rem;
+    }
+    
+    .container-botoes {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .botao-navegacao {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Adicione esta nova animação */
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Resto do CSS permanece igual */
+}
